@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'github'
+    repoURL: https://github.com/Kunalm-1810/k8s-manifest-deployment-repo-todolist.git
     targetRevision: main
-    path:
+    path: backend
     helm:
       valueFiles:
         - values.yaml

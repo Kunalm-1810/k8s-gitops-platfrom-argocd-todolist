@@ -1,12 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ApplProject
+kind: AppProject
 metadata:
   name: default
   namespace: argocd
 spec:
   description: Default project
   sourceRepos:
-    - "*"
+    - "https://github.com/Kunalm-1810/k8s-manifest-deployment-repo-todolist.git"
+    -  "https://argoproj.github.io/argo-helm"
     - "https://argoproj.github.io/argo-helm"
     - "https://kubernetes.github.io/ingress-nginx"
   destinations:
