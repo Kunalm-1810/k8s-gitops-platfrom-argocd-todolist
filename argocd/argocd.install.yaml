@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplProject
+metadata:
+  name: default
+  namespace: argocd
+spec:
+  description: Default project
+  sourceRepos:
+    - "*"
+    - "https://argoproj.github.io/argo-helm"
+    - "https://kubernetes.github.io/ingress-nginx"
+  destinations:
+    - namespace: production
+      server: https://kubernetes.default.svc
+    - namespace: kube-system
+      server: https://kubernetes.default.svc
+    - namespace: ingress-nginx
+      server: https://kubernetes.default.svc
+    - namespace: cert-manager
+      server: https://kubernetes.default.svc
+    - namespace: "*"
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
