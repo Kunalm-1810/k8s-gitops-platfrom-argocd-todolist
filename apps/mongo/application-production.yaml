@@ -1,18 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: backend-production
+  name: mongo-production
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Kunalm-1810/k8s-manifest-deployment-repo-todolist.git
     targetRevision: main
-    path: mongo
+    path: charts/mongo
     helm:
       valueFiles:
-        - values-production.yaml
         - values.yaml
+        - values-production.yaml
+        
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: production

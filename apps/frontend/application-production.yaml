@@ -8,11 +8,12 @@ spec:
   source:
     repoURL: https://github.com/Kunalm-1810/k8s-manifest-deployment-repo-todolist.git
     targetRevision: main
-    path: frontend
+    path: charts/frontend
     helm:
       valueFiles:
-        - values-production.yaml
         - values.yaml
+        - values-production.yaml
+        
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: production

@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aws-load-balancer-controller
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://aws.github.io/eks-charts
+    chart: aws-load-balancer-controller
+    targetRevision: 1.8.1
+    helm:
+      parameters:
+        - name: clusterName
+          value: your-cluster-name
+        - name: serviceAccount.create
+          value: "true"
+        - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
+          value: <paste terraform output alb_controller_role_arn here>
+        - name: region
+          value: your-region
+        - name: vpcId
+          value: <paste terraform output vpc_id here>
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
