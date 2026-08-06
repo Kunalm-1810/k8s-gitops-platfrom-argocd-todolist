@@ -12,17 +12,22 @@ spec:
     chart: cluster-autoscaler
     targetRevision: 9.37.0
     helm:
-      parameters:
-        - name: autoDiscovery.clusterName
-          value: mern-todo-cluster
-        - name: region
-          value: ap-south-1
-        - name: rbac.serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-dfbdf0ad03c3adbea77d98a6d7
-        - name: extraArgs.balance-similar-node-groups
-          value: "true"
-        - name: extraArgs.skip-nodes-with-system-pods
-          value: "false"
+      valueObject:
+        fullnameOverride: cluster-autoscaler
+
+        autoDiscovery:
+        clusterName: mern-todo-cluster
+        cloudProvider: aws
+          awsRegion: ap-south-1
+
+        rbac:
+          create: true
+          serviceAccount:
+            create: true
+            name: cluster-autoscaler
+            annotations:
+              ://amazonaws.com: "arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-dfbdf0ad03c3adbea77d98a6d7"
+        
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
