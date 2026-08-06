@@ -13,7 +13,7 @@ spec:
     targetRevision: 9.37.0
     helm:
       valuesObject:
-        fullnameOverride: "cluster-autoscaler"
+        fullnameOverride: cluster-autoscaler
 
         autoDiscovery:
           clusterName: mern-todo-cluster
@@ -22,11 +22,11 @@ spec:
 
         rbac:
           create: true
-          serviceAccount:
-            create: true
-            name: cluster-autoscaler
-            annotations:
-              ://amazonaws.com: "arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-dfbdf0ad03c3adbea77d98a6d7"
+        serviceAccount:
+          create: true
+          name: cluster-autoscaler
+          annotations:
+            eks.amazonaws.com/role-arn: arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-dfbdf0ad03c3adbea77d98a6d7
         
   destination:
     server: https://kubernetes.default.svc
