@@ -18,7 +18,7 @@ spec:
         - name: region
           value: ap-south-1
         - name: rbac.serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-1d152097fa1fca101952dee586
+          value: arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-dfbdf0ad03c3adbea77d98a6d7
         - name: extraArgs.balance-similar-node-groups
           value: "true"
         - name: extraArgs.skip-nodes-with-system-pods

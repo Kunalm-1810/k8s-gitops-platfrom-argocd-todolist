@@ -18,7 +18,7 @@ spec:
         - name: serviceAccount.create
           value: "true"
         - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: arn:aws:iam::106940013645:role/mern-todo-cluster-alb-controller-4bfd8337811f67cddcde840418
+          value: arn:aws:iam::106940013645:role/mern-todo-cluster-alb-controller-3ae43db525b2199292db00ce6c
         - name: region
           value: ap-south-1
         - name: vpcId

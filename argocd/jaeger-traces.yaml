@@ -8,4 +8,16 @@ metadata:
 spec:
   project: default
   source:
-    repoURL:
+    repoURL: https://jaegertracing.github.io/helm-charts
+    chart: jaeger-operator
+    targetRevision: 2.57.0
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    createNamespace: true
+    syncOptions:
+      - ServerSideApply=true
