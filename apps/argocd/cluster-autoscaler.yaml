@@ -19,7 +19,7 @@ spec:
           clusterName: mern-todo-cluster
         cloudProvider: aws
         awsRegion: ap-south-1
-
+  
         rbac:
           create: true
         serviceAccount:
