@@ -12,16 +12,17 @@ spec:
     chart: cluster-autoscaler
     targetRevision: 9.37.0
     helm:
-      valuesObject:
-        fullnameOverride: cluster-autoscaler
-
+      values: |
+        
         autoDiscovery:
           clusterName: mern-todo-cluster
         cloudProvider: aws
         awsRegion: ap-south-1
-  
+        fullnameOverride: cluster-autoscaler
+
         rbac:
           create: true
+          
         serviceAccount:
           create: true
           name: cluster-autoscaler
