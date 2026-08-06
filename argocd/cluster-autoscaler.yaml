@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: cluster-autoscaler
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
@@ -12,11 +14,11 @@ spec:
     helm:
       parameters:
         - name: autoDiscovery.clusterName
-          value: your-cluster-name
-        - name: awsRegion
-          value: your-region
+          value: mern-todo-cluster
+        - name: region
+          value: ap-south-1
         - name: rbac.serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: <terraform output cluster_autoscaler_role_arn>
+          value: arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-1d152097fa1fca101952dee586
         - name: extraArgs.balance-similar-node-groups
           value: "true"
         - name: extraArgs.skip-nodes-with-system-pods

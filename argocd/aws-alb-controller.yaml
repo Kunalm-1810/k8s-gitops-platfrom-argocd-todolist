@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: aws-load-balancer-controller
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
@@ -12,15 +14,15 @@ spec:
     helm:
       parameters:
         - name: clusterName
-          value: your-cluster-name
+          value: mern-todo-cluster
         - name: serviceAccount.create
           value: "true"
         - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: <paste terraform output alb_controller_role_arn here>
+          value: arn:aws:iam::106940013645:role/mern-todo-cluster-alb-controller-4bfd8337811f67cddcde840418
         - name: region
-          value: your-region
+          value: ap-south-1
         - name: vpcId
-          value: <paste terraform output vpc_id here>
+          value: vpc-0a005cf22a0fd76d2
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-stack
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  project: default
+  source:
+    repoURL:
+    chart: kube-prometheus-stack
+    targetRevision: 61.3.1
+    helm:
+      valuesObject:
+          grafana:
+            enabled: true
+            adminPassword: "admin"
+            service:
+              type: LoadBalancer
+          prometheus:
+            prometheusSpec:
+              scrapeInterval: 15s
+              evaluationInterval: 15s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    createNamespace: true
+    syncOptions:
+      - ServerSideApply=true
