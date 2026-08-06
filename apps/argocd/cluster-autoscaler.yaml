@@ -12,7 +12,7 @@ spec:
     chart: cluster-autoscaler
     targetRevision: 9.37.0
     helm:
-      valueObject:
+      valuesObject:
         fullnameOverride: "cluster-autoscaler"
 
         autoDiscovery:
