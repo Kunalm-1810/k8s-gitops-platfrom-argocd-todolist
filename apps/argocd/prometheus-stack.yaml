@@ -13,15 +13,15 @@ spec:
     targetRevision: 61.3.1
     helm:
       valuesObject:
-          grafana:
-            enabled: true
-            adminPassword: "admin"
-            service:
-              type: LoadBalancer
-          prometheus:
-            prometheusSpec:
-              scrapeInterval: 15s
-              evaluationInterval: 15s
+        grafana:
+          enabled: true
+          adminPassword: "admin"
+          service:
+            type: LoadBalancer
+        prometheus:
+          prometheusSpec:
+            scrapeInterval: 15s
+            evaluationInterval: 15s
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
