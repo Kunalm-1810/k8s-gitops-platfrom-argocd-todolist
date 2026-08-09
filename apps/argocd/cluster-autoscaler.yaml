@@ -27,7 +27,7 @@ spec:
           create: true
           name: cluster-autoscaler
           annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::106940013645:role/mern-todo-cluster-cluster-autoscaler-2d4af0b9ff663cf456371a75bb
+            eks.amazonaws.com/role-arn: arn:aws:iam::106940013645:role/todolist-cluster-cluster-autoscaler-adcb7a9a6d809d1b091b62d23d
         
   destination:
     server: https://kubernetes.default.svc

@@ -18,11 +18,11 @@ spec:
         - name: serviceAccount.create
           value: "true"
         - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: arn:aws:iam::106940013645:role/mern-todo-cluster-alb-controller-9c1720f476674c2c6049e38e70
+          value: arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-cb16c938b6e47974cfc2470226
         - name: region
           value: ap-south-1
         - name: vpcId
-          value: vpc-00a95d1993ee29e2d
+          value: vpc-0622daa9544a697e1
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

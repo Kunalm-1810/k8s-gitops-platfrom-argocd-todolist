@@ -1,0 +1,46 @@
+apiVersion: v1
+items:
+- apiVersion: argoproj.io/v1alpha1
+  kind: AppProject
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"argoproj.io/v1alpha1","kind":"AppProject","metadata":{"annotations":{},"name":"default","namespace":"argocd"},"spec":{"clusterResourceWhitelist":[{"group":"*","kind":"*"}],"description":"Default project","destinations":[{"namespace":"production","server":"https://kubernetes.default.svc"},{"namespace":"kube-system","server":"https://kubernetes.default.svc"},{"namespace":"ingress-nginx","server":"https://kubernetes.default.svc"},{"namespace":"argocd","server":"https://kubernetes.default.svc"},{"namespace":"monitoring","server":"https://kubernetes.default.svc"},{"namespace":"observability","server":"https://kubernetes.default.svc"}],"sourceRepos":["https://github.com/Kunalm-1810/k8s-manifest-deployment-repo-todolist.git","https://github.com/Kunalm-1810/k8s-gitops-platfrom-argocd-todolist.git","https://argoproj.github.io/argo-helm","https://aws.github.io/eks-charts","https://kubernetes.github.io/autoscaler","https://kubernetes.github.io/ingress-nginx","https://prometheus-community.github.io/helm-charts","https://jaegertracing.github.io/helm-charts","https://github.io"]}}
+    creationTimestamp: "2026-08-08T23:39:47Z"
+    generation: 2
+    name: default
+    namespace: argocd
+    resourceVersion: "22887"
+    uid: 4dd5eb50-c48c-446d-94bf-bc31d174580a
+  spec:
+    clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+    description: Default project
+    destinations:
+    - namespace: production
+      server: https://kubernetes.default.svc
+    - namespace: kube-system
+      server: https://kubernetes.default.svc
+    - namespace: ingress-nginx
+      server: https://kubernetes.default.svc
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+    - namespace: monitoring
+      server: https://kubernetes.default.svc
+    - namespace: observability
+      server: https://kubernetes.default.svc
+    sourceRepos:
+    - https://github.com/Kunalm-1810/k8s-manifest-deployment-repo-todolist.git
+    - https://github.com/Kunalm-1810/k8s-gitops-platfrom-argocd-todolist.git
+    - https://argoproj.github.io/argo-helm
+    - https://aws.github.io/eks-charts
+    - https://kubernetes.github.io/autoscaler
+    - https://kubernetes.github.io/ingress-nginx
+    - https://prometheus-community.github.io/helm-charts
+    - https://jaegertracing.github.io/helm-charts
+    - https://github.io
+  status: {}
+kind: List
+metadata:
+  resourceVersion: ""
