@@ -22,7 +22,7 @@ spec:
             enabled: true
             ingressClassName: nginx
             hosts:
-              - grafana.todolist.com
+              - grafana.kodetechm.com
           persistence:
             enabled: true
             storageClassName: ebs-gp3-sc

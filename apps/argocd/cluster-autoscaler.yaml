@@ -15,7 +15,7 @@ spec:
       values: |
         
         autoDiscovery:
-          clusterName: mern-todo-cluster
+          clusterName: todolist-cluster
         cloudProvider: aws
         awsRegion: ap-south-1
         fullnameOverride: cluster-autoscaler
