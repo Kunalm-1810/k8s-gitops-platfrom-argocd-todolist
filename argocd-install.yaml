@@ -15,6 +15,7 @@ spec:
     - "https://prometheus-community.github.io/helm-charts"
     - "https://jaegertracing.github.io/helm-charts"
     - "https://github.io"
+    - "https://kubernetes-sigs.github.io/metrics-server/"
   destinations:
     - namespace: production
       server: https://kubernetes.default.svc
