@@ -12,17 +12,15 @@ spec:
     chart: aws-load-balancer-controller
     targetRevision: 1.8.1
     helm:
-      parameters:
-        - name: clusterName
-          value: todolist-cluster
-        - name: serviceAccount.create
-          value: "true"
-        - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
-          value: arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-cb16c938b6e47974cfc2470226
-        - name: region
-          value: ap-south-1
-        - name: vpcId
-          value: vpc-0622daa9544a697e1
+      values: |
+        clusterName: todolist-cluster
+        region: "ap-south-1"
+        serviceAccount:
+          create: true
+          name: aws-load-balancer-controller
+          annotations:
+            eks.amazonaws.com/role-arn: "arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-6266a49b258474250218f3ab47"
+       
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

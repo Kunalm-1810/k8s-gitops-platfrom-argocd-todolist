@@ -20,14 +20,16 @@ spec:
         awsRegion: ap-south-1
         fullnameOverride: cluster-autoscaler
 
+        sslCertPath: /etc/ssl/certs/ca-bundle.crt
+
         rbac:
           create: true
           
         serviceAccount:
           create: true
           name: cluster-autoscaler
-          annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::106940013645:role/todolist-cluster-cluster-autoscaler-adcb7a9a6d809d1b091b62d23d
+          annotations: 
+            eks.amazonaws.com/role-arn: "arn:aws:iam::106940013645:role/todolist-cluster-cluster-autoscaler-2a2fa6f336edccc864e4524da6"
         
   destination:
     server: https://kubernetes.default.svc
