@@ -15,7 +15,7 @@ spec:
       values: |
         clusterName: todolist-cluster
         region: "ap-south-1"
-        vpcid: "vpc-04ca8527163fa4e57"
+        vpcId: "vpc-04ca8527163fa4e57"
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
