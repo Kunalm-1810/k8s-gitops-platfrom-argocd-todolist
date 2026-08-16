@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tempo
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  project: default
+  source:
+    repoURL: https://grafana-community.github.io/helm-charts
+    targetRevision: 1.24.4
+    chart: tempo
+    helm:
+      values: |
+        serviceAccount:
+          create: true
+          name: tempo
+
+        # storage:
+        #   trace:
+        #     s3:
+        #       bucket: tempo-traces
+        #       endpoint: minio.minio.svc.cluster.local:9000
+        #       accessKeyIDSecret:
+        #         name: tempo-minio
+        #         key: access-key
+        #       secretAccessKeySecret:
+        #         name: tempo-minio
+        #         key: secret-key
+        #       insecure: true
+
+        # storageSize: 10Gi
+
+        # resources:
+        #   limits:
+        #     cpu: 200m
+        #     memory: 200Mi
+        #   requests:
+        #     cpu: 200m
+        #     memory: 200Mi
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

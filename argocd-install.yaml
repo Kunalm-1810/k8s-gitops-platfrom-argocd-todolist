@@ -16,6 +16,8 @@ spec:
     - "https://jaegertracing.github.io/helm-charts"
     - "https://github.io"
     - "https://kubernetes-sigs.github.io/metrics-server/"
+    - "https://open-telemetry.github.io/opentelemetry-helm-charts"
+    - "https://grafana-community.github.io/helm-charts"
   destinations:
     - namespace: production
       server: https://kubernetes.default.svc
