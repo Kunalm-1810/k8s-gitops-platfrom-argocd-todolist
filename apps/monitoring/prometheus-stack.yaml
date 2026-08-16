@@ -20,7 +20,14 @@ spec:
             type: ClusterIP
           ingress:
             enabled: true
-            ingressClassName: nginx
+            ingressClassName: alb
+            annotations:
+              alb.ingress.kubernetes.io/scheme: internet-facing
+              alb.ingress.kubernetes.io/target-type: ip
+              alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+              alb.ingress.kubernetes.io/ssl-redirect: '443'
+              alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:106940013645:certificate/8930c901-0be8-41a0-8401-4e16e3937baa
+              alb.ingress.kubernetes.io/group.name: todolist
             hosts:
               - grafana.kodetechm.com
           persistence:

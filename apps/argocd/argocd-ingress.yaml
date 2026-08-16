@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/backend-protocol: HTTPS
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:106940013645:certificate/8930c901-0be8-41a0-8401-4e16e3937baa
     alb.ingress.kubernetes.io/actions.ssl-redirect: '443'
+    alb.ingress.kubernetes.io/group.name: todolist
 spec:
   ingressClassName: alb
   rules:
