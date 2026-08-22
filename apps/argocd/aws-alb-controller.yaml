@@ -20,7 +20,7 @@ spec:
           create: true
           name: aws-load-balancer-controller
           annotations:
-            eks.amazonaws.com/role-arn: "arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-6266a49b258474250218f3ab47"
+            eks.amazonaws.com/role-arn: "arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-ca187fd6f36a0d6df6087977a8"
        
   destination:
     server: https://kubernetes.default.svc
