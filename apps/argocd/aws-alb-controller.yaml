@@ -15,12 +15,12 @@ spec:
       values: |
         clusterName: todolist-cluster
         region: "ap-south-1"
-        vpcId: "vpc-04ca8527163fa4e57"
+        vpcId: "vpc-09c5ce22260df2132"    #chnage the vpc
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
           annotations:
-            eks.amazonaws.com/role-arn: "arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-ca187fd6f36a0d6df6087977a8"
+            eks.amazonaws.com/role-arn: "arn:aws:iam::106940013645:role/todolist-cluster-alb-controller-ca187fd6f36a0d6df6087977a8"   #chnage the alb-controller
        
   destination:
     server: https://kubernetes.default.svc
