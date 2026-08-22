@@ -56,6 +56,25 @@ spec:
                   resources:
                     requests:
                       storage: 2Gi
+            secrets:
+              - alert-manager-slack-webhhok
+          config:
+            global:
+              slack_api_url_file: etc/alertmanager/secrets/alert-manager-slack-webhook/webhook-url
+            route:
+              receiver: "slack-notifications"
+              group_by: ['alertname', 'namespace']
+              group_wait: 30s
+              group_interval: 5m
+              repeat_interval: 1h
+            receivers:
+              - name: "slack-notifications"
+                slack_Configs:
+                  - channel: "#all-devops-institute"
+                    send_Resolved: true
+                    title: '{{`{{ .GroupLabels.alertname }}`}}'
+                    text: '{{`{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}`}}'
+            
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
